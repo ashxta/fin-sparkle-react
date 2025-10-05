@@ -14,20 +14,51 @@ export const Hero = () => {
           className="w-full h-full object-cover opacity-20"
         />
         
-        {/* Animated Gradient Overlay */}
+        {/* Animated Wave Layers */}
         <motion.div
-          className="absolute inset-0 gradient-hero"
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(135deg, hsl(262 83% 58% / 0.4) 0%, hsl(220 90% 56% / 0.3) 50%, hsl(174 72% 56% / 0.4) 100%)",
+            backgroundSize: "400% 400%",
+          }}
           animate={{
-            backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(225deg, hsl(174 72% 56% / 0.3) 0%, hsl(262 83% 58% / 0.2) 50%, hsl(330 81% 60% / 0.3) 100%)",
+            backgroundSize: "400% 400%",
+          }}
+          animate={{
+            backgroundPosition: ["100% 50%", "0% 50%", "100% 50%"],
           }}
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear",
+            ease: "easeInOut",
           }}
+        />
+        <motion.div
+          className="absolute inset-0"
           style={{
+            background: "radial-gradient(circle at center, hsl(262 83% 58% / 0.2) 0%, transparent 70%)",
             backgroundSize: "200% 200%",
-            opacity: 0.6,
+          }}
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.4, 0.6, 0.4],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
           }}
         />
         
