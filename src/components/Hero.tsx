@@ -63,13 +63,13 @@ export const Hero = () => {
         />
         
         {/* Floating Particles */}
-        {[...Array(15)].map((_, i) => (
+        {[...Array(40)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full"
             style={{
-              width: Math.random() * 6 + 2 + "px",
-              height: Math.random() * 6 + 2 + "px",
+              width: Math.random() * 8 + 2 + "px",
+              height: Math.random() * 8 + 2 + "px",
               left: Math.random() * 100 + "%",
               top: Math.random() * 100 + "%",
               background: i % 3 === 0 
@@ -77,19 +77,19 @@ export const Hero = () => {
                 : i % 3 === 1 
                 ? "hsl(var(--secondary))" 
                 : "hsl(var(--accent))",
-              opacity: Math.random() * 0.3 + 0.2,
+              opacity: Math.random() * 0.4 + 0.2,
             }}
             animate={{
-              y: [0, Math.random() * -100 - 50],
-              x: [0, Math.random() * 60 - 30],
-              opacity: [0.2, 0.5, 0.2],
-              scale: [1, 1.5, 1],
+              y: [0, Math.random() * -150 - 50],
+              x: [0, Math.random() * 80 - 40],
+              opacity: [0.2, 0.6, 0.2],
+              scale: [1, 1.8, 1],
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: Math.random() * 5 + 5,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: Math.random() * 5,
+              delay: Math.random() * 3,
             }}
           />
         ))}
@@ -138,18 +138,6 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-4 z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex items-center justify-center gap-2 mb-6"
-        >
-          <Sparkles className="w-5 h-5 text-accent" />
-          <span className="text-accent font-semibold tracking-wider uppercase text-sm">
-            Smart Lending Platform
-          </span>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -220,21 +208,6 @@ export const Hero = () => {
           ))}
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <div className="w-6 h-10 border-2 border-foreground/30 rounded-full p-1">
-          <motion.div
-            className="w-1.5 h-1.5 bg-foreground/50 rounded-full mx-auto"
-            animate={{ y: [0, 20, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-        </div>
-      </motion.div>
     </section>
   );
 };
