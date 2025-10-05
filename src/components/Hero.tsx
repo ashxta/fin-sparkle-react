@@ -7,19 +7,68 @@ export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           src={heroBackground}
           alt="Financial growth visualization"
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 gradient-hero opacity-70" />
+        
+        {/* Animated Gradient Overlay */}
+        <motion.div
+          className="absolute inset-0 gradient-hero"
+          animate={{
+            backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          style={{
+            backgroundSize: "200% 200%",
+            opacity: 0.6,
+          }}
+        />
+        
+        {/* Floating Particles */}
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              width: Math.random() * 6 + 2 + "px",
+              height: Math.random() * 6 + 2 + "px",
+              left: Math.random() * 100 + "%",
+              top: Math.random() * 100 + "%",
+              background: i % 3 === 0 
+                ? "hsl(var(--primary))" 
+                : i % 3 === 1 
+                ? "hsl(var(--secondary))" 
+                : "hsl(var(--accent))",
+              opacity: Math.random() * 0.3 + 0.2,
+            }}
+            animate={{
+              y: [0, Math.random() * -100 - 50],
+              x: [0, Math.random() * 60 - 30],
+              opacity: [0.2, 0.5, 0.2],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 5,
+            }}
+          />
+        ))}
       </div>
 
       {/* Floating Orbs */}
       <motion.div
         className="absolute top-20 left-10 w-72 h-72 bg-primary/30 rounded-full blur-3xl"
         animate={{
+          x: [0, 50, 0],
           y: [0, 30, 0],
           scale: [1, 1.1, 1],
         }}
@@ -32,11 +81,25 @@ export const Hero = () => {
       <motion.div
         className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/30 rounded-full blur-3xl"
         animate={{
+          x: [0, -30, 0],
           y: [0, -40, 0],
           scale: [1, 1.2, 1],
         }}
         transition={{
           duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      <motion.div
+        className="absolute top-1/2 left-1/2 w-80 h-80 bg-accent/20 rounded-full blur-3xl"
+        animate={{
+          x: [-40, 40, -40],
+          y: [-20, 20, -20],
+          scale: [1, 1.15, 1],
+        }}
+        transition={{
+          duration: 12,
           repeat: Infinity,
           ease: "easeInOut",
         }}
