@@ -63,13 +63,15 @@ export const Hero = () => {
         />
         
         {/* Floating Particles */}
-        {[...Array(40)].map((_, i) => (
+        {[...Array(40)].map((_, i) => {
+          const size = Math.random() * 8 + 2;
+          return (
           <motion.div
             key={i}
             className="absolute rounded-full"
             style={{
-              width: Math.random() * 8 + 2 + "px",
-              height: Math.random() * 8 + 2 + "px",
+              width: size + "px",
+              height: size + "px",
               left: Math.random() * 100 + "%",
               top: Math.random() * 100 + "%",
               background: i % 3 === 0 
@@ -92,7 +94,8 @@ export const Hero = () => {
               delay: Math.random() * 3,
             }}
           />
-        ))}
+        )}
+        )}
       </div>
 
       {/* Floating Orbs */}

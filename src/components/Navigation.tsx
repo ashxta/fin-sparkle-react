@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, TrendingUp } from "lucide-react";
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,7 +41,7 @@ export const Navigation = () => {
             className="flex items-center gap-2 cursor-pointer"
           >
             <div className="gradient-primary p-2 rounded-lg">
-              <Sparkles className="w-6 h-6 text-white" />
+              <TrendingUp className="w-6 h-6 text-white" />
             </div>
             <span className="text-2xl font-bold text-gradient-primary">
               FinEase
